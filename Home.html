@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benefits of ABHA Number</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="homesection" class="container">
+    <h1>Benefits of ABHA Number</h1>
+    <p>
+      ABHA number is a 14 digit number that will uniquely identify you as a participant in India's digital healthcare ecosystem. 
+      ABHA number will establish a strong and trustable identity for you that will be accepted by healthcare providers across the country.
+      Seamless sign up for PHR (Personal Health Records) applications such as ABDM ABHA application for Health data sharing.
+    </p>
+    <div class="benefits">
+      <div class="benefit">
+        <h3>Unique & Trustable Identity</h3>
+        <p>Establish unique identity across different healthcare providers within the healthcare ecosystem</p>
+      </div>
+      <div class="benefit">
+        <h3>Unified Benefits</h3>
+        <p>Link all healthcare benefits ranging from public health programmes to insurance schemes to your unique ABHA number</p>
+      </div>
+      <div class="benefit">
+        <h3>Hassle-free Access</h3>
+        <p>Avoid long lines for registration in healthcare facilities across the country</p>
+      </div>
+      <div class="benefit">
+        <h3>Easy PHR Sign Up</h3>
+        <p>Seamless sign up for PHR (Personal Health Records) applications such as ABDM application for health data sharing</p>
+      </div>
+    </div>
+  </div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Scanner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .scanner-container {
+      width: 320px;
+      height: 320px;
+      border: 5px solid #4CAF50;
+      border-radius: 15px;
+      display: none;
+      overflow: hidden;
+      position: relative;
+    }
+    #qr-reader {
+      width: 100%;
+      height: 100%;
+    }
+    .scanner-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .scanner-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Personal Health Record QR Code Scanner</h2>
+
+  <button class="scanner-button" id="start-scanner">Start QR Code Scanner</button>
+  
+  <div class="scanner-container" id="scanner-container">
+    <div id="qr-reader"></div>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+  <script>
+    const startScannerButton = document.getElementById('start-scanner');
+    const scannerContainer = document.getElementById('scanner-container');
+
+    startScannerButton.addEventListener('click', () => {
+      // Display the scanner container
+      scannerContainer.style.display = 'block';
+
+      // Initialize the QR code scanner
+      const qrCodeScanner = new Html5Qrcode("qr-reader");
+
+      qrCodeScanner.start(
+        { facingMode: "environment" }, // Use the back camera
+        {
+          fps: 10,    // Frames per second for scanning
+          qrbox: { width: 250, height: 250 } // Define scanning box size
+        },
+        (decodedText, decodedResult) => {
+          // Handle the decoded result
+          alert(`QR Code Scanned: ${decodedText}`);
+          qrCodeScanner.stop(); // Stop scanning after a successful scan
+          scannerContainer.style.display = 'none'; // Hide scanner
+        },
+        (errorMessage) => {
+          // Handle scanning errors
+          console.log(`QR Code scan error: ${errorMessage}`);
+        }
+      ).catch((err) => {
+        // Handle errors during the start of the scanner
+        console.error(`Unable to start scanning: ${err}`);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+  <script src="app.js"></script>
+</body>
+</html>

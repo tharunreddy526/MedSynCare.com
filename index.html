@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedSynCare: Personal Health Record App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+ <!-- Header -->
+ <header>
+        <h1>MedSynCare: Personal Health Record App</h1>
+    <div class="login-section">
+        <button id="loginBtn" onclick="display('loginSection')">Login with ABHA Number</button>
+    </div>
+</header>
+
+<body>
+    <!-- ABHA Number Creation Form -->
+    
+        
+        <div class="container">
+          <h2>Create Your ABHA Number</h2>
+        <!-- Step 1: Enter Aadhaar Number -->
+        <div id="step1" class="step">
+            <p>Please enter your Aadhaar number to create your ABHA number. We will send an OTP to your Aadhaar-linked mobile number.</p>
+            <form id="aadhaarForm">
+                <label for="aadhaar">Aadhaar Number</label>
+                <input type="text" id="aadhaar" maxlength="12" placeholder="Enter 12-digit Aadhaar" required>
+                <button type="button" onclick="validateAadhaar()">Generate OTP</button>
+                <p id="error-msg"></p>
+            </form>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div id="step2" class="step" style="display: none;">
+            <p>OTP has been sent to your Aadhaar-linked mobile number. Please enter the OTP below:</p>
+            <form id="otpForm">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" maxlength="6" placeholder="Enter 6-digit OTP" required>
+                <button type="button" onclick="verifyOTP()">Verify OTP</button>
+            </form>
+            <button type="button" onclick="goBack()">Back</button>
+            <p id="otp-error-msg"></p>
+        </div>
+
+        <!-- Step 3: ABHA Number Display -->
+        <div id="step3" class="step" style="display: none;">
+            <h3>Your ABHA Number is: <span id="abhaNumber"></span></h3>
+            <p>Keep this number safe for future healthcare services.</p>
+            <!-- <button type="button" onclick="goToLogin()">Back</button> -->
+        </div>
+    </div>
+</head>
+  <!-- Main Content -->
+    <main>
+        <section id="loginSection" class="hidden">
+            <h2>Login with ABHA Number</h2>
+            <input type="text" id="abhaNumber" maxlength="14" placeholder="Enter your 14-digit ABHA Number">
+            <a href="Home.html"><button id="submitAbhaNumber">Login</button>
+            </a>
+        </section>
+
+        <section id="healthRecordsSection" class="hidden">
+            <h2>Your Health Records</h2>
+            <div id="healthRecords"></div>
+        </section>
+
+        <section id="consentManagementSection" class="hidden">
+            <h2>Manage Your Consents</h2>
+            <div id="consents"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MedSynCare: Personal Health Record App | Powered by ABDM</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
