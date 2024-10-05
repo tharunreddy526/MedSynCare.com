@@ -1,11 +1,14 @@
 {
-  "name": "phr-app",
-  "version": "1.0.0",
-  "description": "Backend for Personal Health Record App",
-  "main": "app.js",
+  "name": "gonative-ios",
+  "version": "1.0.2",
+  "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "./scripts/release.sh"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/gonativeio/gonative-ios.git"
+  },
+  "author": "GoNative.io LLC",
+  "license": "https://gonative.io/pricing"
 }
